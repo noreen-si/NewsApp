@@ -10,3 +10,4 @@ This news app uses the following:
 * [Moshi](https://github.com/square/moshi) which handles the deserialization of the returned JSON to Kotlin data objects 
 * [Glide](https://bumptech.github.io/glide/) to load and cache images by URL.
 
+Currently, there is no public release for this application.

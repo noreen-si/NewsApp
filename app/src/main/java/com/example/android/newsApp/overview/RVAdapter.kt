@@ -15,11 +15,11 @@ import kotlinx.android.synthetic.main.article_item.view.*
  */
 
 class RVAdapter(val onClickListener: RVAdapter.OnClickListener) :
-    ListAdapter<Article, RVAdapter.MarsPropertyViewHolder>(DiffCallback) {
+    ListAdapter<Article, RVAdapter.NewsViewHolder>(DiffCallback) {
     /**
      * View holder gets [Article] information thanks to binding var with ArticleItem.
      */
-    class MarsPropertyViewHolder(private var binding: ArticleItemBinding):
+    class NewsViewHolder(private var binding: ArticleItemBinding):
         RecyclerView.ViewHolder(binding.root) {
         fun bind(article: Article) {
             binding.article = article
@@ -45,26 +45,26 @@ class RVAdapter(val onClickListener: RVAdapter.OnClickListener) :
      * Create new [RecyclerView] item views (invoked by the layout manager)
      */
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): MarsPropertyViewHolder {
-        return MarsPropertyViewHolder(ArticleItemBinding.inflate(LayoutInflater.from(parent.context)))
+                                    viewType: Int): NewsViewHolder {
+        return NewsViewHolder(ArticleItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     /**
      * Replaces the contents of a view (invoked by the layout manager)
      */
-    override fun onBindViewHolder(holder: MarsPropertyViewHolder, position: Int) {
-        val marsProperty = getItem(position)
+    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+        val news = getItem(position)
 
         // Set click listener
         holder.itemView.setOnClickListener {
-            onClickListener.onClick(marsProperty)
+            onClickListener.onClick(news)
         }
 
-        holder.bind(marsProperty)
+        holder.bind(news)
         holder.itemView.apply {
-            titleTV.text = marsProperty.title
-            timeTV.text = marsProperty.publishedAt
-            sourceTV.text = marsProperty.author
+            titleTV.text = news.title
+            timeTV.text = news.publishedAt
+            sourceTV.text = news.author
         }
     }
 
