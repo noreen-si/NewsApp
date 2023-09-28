@@ -39,7 +39,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 /**
  * This binding adapter displays the [NewsStatus] of the network request in an image view.
  */
-@BindingAdapter("marsApiStatus")
+@BindingAdapter("newsApiStatus")
 fun bindStatus(statusImageView: ImageView, status: NewsStatus?) {
     when (status) {
         NewsStatus.LOADING -> {
